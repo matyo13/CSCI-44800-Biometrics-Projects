@@ -91,8 +91,8 @@ def threshold_skin_regions(frequencies, skin_cluster, threshold):
     return skin_region_map
 
 # Step 0: Initialization
-image_path1 = 'C:\\Users\\mathe\\Desktop\\CSCI-44800-segmentation-with-K-means-assignment\\HandImage1.jpg'
-image_path2 = 'C:\\Users\\mathe\\Desktop\\CSCI-44800-segmentation-with-K-means-assignment\\HandImage2.jpg'
+image_path1 = '..\\CSCI-44800-Biometrics-Projects\\segmentation-with-K-means\\HandImage1.jpg'
+image_path2 = '..\\CSCI-44800-Biometrics-Projects\\segmentation-with-K-means\\HandImage2.jpg'
 scale_percent = 50
 X1 = load_and_resize_image(image_path1, scale_percent)
 X2 = load_and_resize_image(image_path2, scale_percent)
