@@ -159,7 +159,7 @@ def plot_minima_and_perpendicular_lines(enhanced_image, spline, lowest_upper_min
     plt.legend()
 
 def main():
-    image_path = '..\\CSCI-44800-Biometrics-Projects\\dental-detection\\teeth_sample.png'
+    image_path = '..\\dental-detection\\teeth_sample.png'
     enhanced_image = enhance_image(image_path)
     if enhanced_image is None:
         return
