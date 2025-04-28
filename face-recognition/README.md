@@ -1,69 +1,60 @@
-Face Recognition Project
-========================
+# Face Recognition
 
-Overview
---------
-This project implements a face recognition system using the `facenet-pytorch` library and the `InceptionResnetV1` model pre-trained on the VGGFace2 dataset. The system includes two modes:
+## Description
+This project implements a face recognition system using the `facenet-pytorch` library and the `InceptionResnetV1` model pre-trained on the VGGFace2 dataset. The system supports two modes:
 1. **Verification Mode**: Computes the Cumulative Match Characteristic (CMC) curve to evaluate recognition performance.
 2. **Single Query Matching**: Displays the query image and its top 3 matches from the gallery.
 
-Sources
--------
+## Features
+- Extract face embeddings using the pre-trained `InceptionResnetV1` model.
+- Evaluate recognition performance using the CMC curve.
+- Perform single query matching to find the top matches for a given face.
+- Visualize results, including query images and their matches.
 
-### Code and Libraries
-1. **PyTorch**:  
-   - Website: [https://pytorch.org/](https://pytorch.org/)  
-   - Used for deep learning operations and model handling.
-
-2. **Facenet-PyTorch**:  
-   - GitHub Repository: [https://github.com/timesler/facenet-pytorch](https://github.com/timesler/facenet-pytorch)  
-   - Provides the pre-trained `InceptionResnetV1` model used for feature extraction.
-
-3. **Scikit-learn**:  
-   - Website: [https://scikit-learn.org/](https://scikit-learn.org/)  
-   - Used for computing pairwise distances and evaluating recognition performance.
-
-4. **Matplotlib**:  
-   - Website: [https://matplotlib.org/](https://matplotlib.org/)  
-   - Used for plotting the CMC curve and displaying images.
-
-5. **Torchvision**:  
-   - Website: [https://pytorch.org/vision/stable/index.html](https://pytorch.org/vision/stable/index.html)  
-   - Used for dataset handling and image transformations.
-
-6. **TQDM**:  
-   - GitHub Repository: [https://github.com/tqdm/tqdm](https://github.com/tqdm/tqdm)  
-   - Used for displaying progress bars during feature extraction.
-
-### Dataset
-1. **LFW (Labeled Faces in the Wild)**:  
-   - Website: [http://vis-www.cs.umass.edu/lfw/](http://vis-www.cs.umass.edu/lfw/)  
-   - Used as the dataset for face recognition. The images are stored in the `lfw-deepfunneled` folder.
-
-### Papers
-1. **FaceNet: A Unified Embedding for Face Recognition and Clustering**  
-   - Authors: Florian Schroff, Dmitry Kalenichenko, James Philbin  
-   - Paper: [https://arxiv.org/abs/1503.03832](https://arxiv.org/abs/1503.03832)  
-   - Description: The foundational paper for the FaceNet model, which inspired the use of embeddings for face recognition.
-
-2. **VGGFace2: A Dataset for Recognising Faces Across Pose and Age**  
-   - Authors: Qiong Cao, Li Shen, Weidi Xie, Omkar M. Parkhi, Andrew Zisserman  
-   - Paper: [https://arxiv.org/abs/1710.08092](https://arxiv.org/abs/1710.08092)  
-   - Description: The dataset used to pre-train the `InceptionResnetV1` model.
-
-How to Run
-----------
-
-1. Install the required libraries:
-   ```bash
-   pip install torch torchvision facenet-pytorch scikit-learn matplotlib tqdm
-2. Place the dataset in the `lfw-deepfunneled` folder.
-3. Run the script:
+## How to Run
+1. Place the LFW dataset in the `face-recognition/lfw-deepfunneled/` folder.
+2. Run the script:
    ```bash
    python main.py
+   ```
 
-Notes
------
+## Dependencies
+- Python 3.x
+- PyTorch
+- Torchvision
+- Facenet-PyTorch
+- Scikit-learn
+- Matplotlib
+- TQDM
 
-- Ensure that the dataset is properly structured and accessible.
-- The `max_images` parameter in `get_image_paths` can be adjusted to limit the number of images for testing.
+Install the dependencies using:
+```bash
+pip install torch torchvision facenet-pytorch scikit-learn matplotlib tqdm
+```
+
+## Key Steps in the Implementation
+1. **Dataset Preparation**:
+   - Load the LFW dataset from the `lfw-deepfunneled` folder.
+   - Preprocess images using transformations such as resizing and normalization.
+2. **Feature Extraction**:
+   - Use the `InceptionResnetV1` model to extract face embeddings.
+   - Store embeddings for both query and gallery images.
+3. **Verification Mode**:
+   - Compute pairwise distances between embeddings.
+   - Generate the CMC curve to evaluate recognition performance.
+4. **Single Query Matching**:
+   - Compare the query image embedding with gallery embeddings.
+   - Display the query image and its top 3 matches.
+5. **Visualization**:
+   - Plot the CMC curve for verification mode.
+   - Display query images alongside their top matches.
+
+## Notes
+- Ensure the LFW dataset is properly structured and accessible in the `lfw-deepfunneled` folder.
+- The `max_images` parameter in the script can be adjusted to limit the number of images for testing.
+- Use high-quality images for better recognition accuracy.
+
+## Output
+The script generates the following outputs:
+- **CMC Curve**: A plot showing recognition performance in verification mode.
+- **Query Matching Results**: Visualizations of query images and their top 3 matches.

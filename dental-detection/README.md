@@ -1,28 +1,63 @@
-# I found the ideal values for the input are:
-Sliding window width = 150
-Sliding window height = 10
-Number of upper teeth = 5
-Number of lower teeth = 5
+# Dental Detection
 
-# How my code was implemented
+## Description
+This project implements a dental detection system to identify and isolate individual teeth in dental images. The system uses sliding window techniques, intensity mapping, and spline functions to detect gaps between teeth and visualize the results.
 
-# Gap valley detection
-Using a vertical sliding window that moves across the image, an intensity map is created to find the most significant local minima of each scan
-The intensity maps are fitted with a gaussian filter
-The point of local minima is then plotted over the image which is where the gaps between the upper and lower teeth are
-A spline function is then used to connect the plotted points, which creates a smooth curve
+## Features
+- Detect gaps between upper and lower teeth using intensity mapping and local minima detection.
+- Isolate individual teeth in both upper and lower sections.
+- Visualize the results with plotted lines and smooth curves.
+- Adjustable parameters for sliding window dimensions and expected number of teeth.
 
-# Tooth isolation
-Using two vertical sliding windows, one for upper and lower sections divided by the smooth curve, an average intensity map is created for each section
-The average intensity map is then fittedd with a gaussian filter
-The user input for how many teeth are to be expected for each section is used to select the number of most significant minima to be selected
-The points of local minima is then plotted over the image which is where the gaps between each tooth are found
-These steps are done for both the upper and lower teeth sections
+## How to Run
+1. Place the dental images in the `dental-detection/images/` folder.
+2. Run the script:
+   ```bash
+   python main.py
+   ```
 
-# Visualization
-Once the tooth isolation points have been plotted, a line is plotted starting from the smooth curve to the individual points and towards the endd of the image
-Calculations to make sure the lines are perpendicular to the curve are done before forming the actual lines
+## Dependencies
+- Python 3.x
+- NumPy
+- OpenCV
+- Matplotlib
+- Scipy
 
-# End 
-The end result should have the individual tooth boxed by a plotted border of lines
-The user input values may change the result which may increase or decrease accuracy
+Install the dependencies using:
+```bash
+pip install numpy opencv-python matplotlib scipy
+```
+
+## Key Steps in the Implementation
+1. **Gap Valley Detection**:
+   - Use a vertical sliding window to create an intensity map.
+   - Smooth the intensity map with a Gaussian filter.
+   - Identify local minima to detect gaps between upper and lower teeth.
+   - Fit a spline function to connect the detected points and form a smooth curve.
+2. **Tooth Isolation**:
+   - Divide the image into upper and lower sections using the smooth curve.
+   - Apply sliding windows to each section to create intensity maps.
+   - Smooth the maps and detect local minima based on user-defined expected number of teeth.
+   - Mark gaps between individual teeth for both sections.
+3. **Visualization**:
+   - Plot lines from the smooth curve to the detected points, extending to the image edges.
+   - Ensure lines are perpendicular to the curve for accurate visualization.
+4. **Final Output**:
+   - Generate a visualization where each tooth is boxed by plotted lines.
+   - Allow user adjustments to optimize detection accuracy.
+
+## Notes
+- The accuracy of the results depends on the input values provided by the user.
+- Adjusting the sliding window dimensions or the expected number of teeth may improve detection precision.
+- Ensure the input images are clear and well-lit for optimal results.
+
+## Output
+The script processes dental images and generates the following outputs:
+- **Gap Valley Visualization**: Smooth curves representing gaps between upper and lower teeth.
+- **Tooth Isolation Visualization**: Lines marking individual teeth in both upper and lower sections.
+
+## Ideal Input Values
+- **Sliding window width**: 150  
+- **Sliding window height**: 10  
+- **Number of upper teeth**: 5  
+- **Number of lower teeth**: 5  
