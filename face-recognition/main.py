@@ -97,7 +97,7 @@ def single_query_matching(query_image, gallery_images):
     plt.tight_layout()
     plt.show()
 
-all_faces = get_image_paths(max_images=10000) 
+all_faces = get_image_paths(max_images=1000) 
 
 query_images = random.sample(all_faces, 10)
 gallery_images = [img for img in all_faces if img not in query_images]
