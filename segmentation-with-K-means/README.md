@@ -33,13 +33,20 @@ pip install numpy opencv-python matplotlib scikit-learn
 ```
 
 ## Key Steps in the Implementation
-1. **Load and Resize Image**: Images are loaded and resized to a specified scale for efficient processing.
-2. **Random Initialization of Centroids**: Centroids are randomly selected from the image pixels.
-3. **K-means Clustering**: The clustering is performed using scikit-learn's `KMeans` with the specified number of clusters (`k`).
-4. **Reassign Clusters**: Clusters are reassigned based on reference colors for consistent labeling.
-5. **Repetitive K-means**: The algorithm is executed multiple times to calculate the frequency of cluster assignments for each pixel.
-6. **Thresholding**: Probabilities are thresholded to detect specific regions (e.g., skin regions).
-7. **Visualization**: Results are visualized, including the original image, cluster probability maps, and detected regions.
+1. **Load and Resize Image**: 
+   - Images are loaded and resized to a specified scale for efficient processing.
+2. **Random Initialization of Centroids**: 
+   - Centroids are randomly selected from the image pixels.
+3. **K-means Clustering**: 
+   - The clustering is performed using scikit-learn's `KMeans` with the specified number of clusters (`k`).
+4. **Reassign Clusters**: 
+   - Clusters are reassigned based on reference colors for consistent labeling.
+5. **Repetitive K-means**: 
+   - The algorithm is executed multiple times to calculate the frequency of cluster assignments for each pixel.
+6. **Thresholding**: 
+   - Probabilities are thresholded to detect specific regions (e.g., skin regions).
+7. **Visualization**: 
+   - Results are visualized, including the original image, cluster probability maps, and detected regions.
 
 ## Notes
 - The script processes two images (`HandImage1.jpg` and `HandImage2.jpg`) by default. You can add more images by modifying the script.
