@@ -57,13 +57,13 @@ How to Run
 1. Install the required libraries:
    ```bash
    pip install torch torchvision facenet-pytorch scikit-learn matplotlib tqdm
-2. Place the dataset in the 'lfw-deepfunneled' folder.
+2. Place the dataset in the `lfw-deepfunneled` folder.
 3. Run the script:
-   '''bash
+   ```bash
    python main.py
 
 Notes
 -----
 
 - Ensure that the dataset is properly structured and accessible.
-- The 'max_images' parameter in 'get_image_paths' can be adjusted to limit the number of images for testing.
+- The `max_images` parameter in `get_image_paths` can be adjusted to limit the number of images for testing.
